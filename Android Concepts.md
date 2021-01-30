@@ -116,3 +116,58 @@ em : 글꼴과 상관 없이 동일한 텍스트 크기를 갖는다.
 ### Minimum SDK
 
 어느 OS 버전의 단말까지 지원할 것인지에 대한 설정이다.
+</br></br>
+### Activity
+
+하나의 화면을 부르는 말. 앱을 실행했을 때 처음 보이는 화면은 Main Activity라 한다.
+
+[MainActivity.java](http://mainactivity.java)는 app/manifests/AndroidManifest.xml 에 자동으로 등록되어 있다. MainActivity.java 외의 다른 코드로 첫화면을 설정하고 싶을 때는 AndroidManifest.xml 파일에서 <activity android:name=".MainActivity.java" 부분을 원하는 코드로 변경한다.
+</br></br>
+### Gravity
+
+layout_gravity : 뷰의 정렬 속성</br>
+gravity : 뷰 내의 내용물 정렬 속성
+</br></br>
+### 공간 분할
+
+뷰를 배치한 후 남아있는 공간을 분할할 때는 android:layout_weight 속성을 적절한 수로 설정한다. 남아있는 공간이 아닌 부모의 크기를 분할해서 각 뷰가 크기를 설정할 수 있게끔 하려면 가로나 세로 중 어떤 방향으로 나누느냐에 따라 android:layout_width 또는 android:layout_height 속성을 0dp로 설정한 후 layout_weight 속성을 설정해준다.
+</br></br>
+### Relative Layout (상대 레이아웃)
+
+뷰의 위치를 결정할 때, 부모 컨테이너나 다른 뷰와의 상대적인 위치를 이용한다.
+
+보통 화면 레이아웃을 만들 때는 relative layout과 linear layout을 함께 사용한다.
+</br></br>
+### 상대적 위치에 뷰를 배치하기 위한 속성들
+
+layout_above : 지정한 뷰의 위쪽에 배치</br>
+layout_below : 지정한 뷰의 아래쪽에 배치</br>
+layout_alignTop : 지정한 뷰의 위쪽과 맞춤</br>
+layout_alignBottom : 지정한 뷰의 아래쪽과 맞춤</br>
+layout_alignLeft : 지정한 뷰의 왼쪽과 맞춤</br>
+layout_alignRight : 지정한 뷰의 오른쪽과 맞춤</br>
+layout_alignBaseline : 지정한 뷰와 내용물의 아래쪽 기준선(baseline)을 맞춤</br></br>
+
+layout_alignParentTop : 부모 컨테이너의 위쪽과 뷰의 위쪽을 맞춤</br>
+layout_alignParentBottom : 부모 컨테이너의 아래쪽과 뷰의 아래쪽을 맞춤</br>
+layout_alignParentLeft : 부모 컨테이너의 왼쪽 끝과 뷰의 왼쪽 끝을 맞춤</br>
+layout_alignParentRight : 부모 컨테이너의 오른쪽 끝과 뷰의 오른쪽 끝을 맞춤</br>
+layout_centerHorizontal : 부모 컨테이너의 수평 방향 중앙에 배치</br>
+layout_centerVertical : 부모 컨테이너의 수직 방향 중앙에 배치</br>
+layout_centerInParent : 부모 컨테이너의 수평과 수직 방향 중앙에 배치</br>
+</br></br>
+### TableRow
+
+TableRow의 height는 내부적으로 항상 wrap_content로 설정되어 있고, width는 항상 match_parent로 설정되어 있다. 둘 다 xml파일에서는 match_parent로 되어있지만 실제로는 그렇게 동작하지 않는다는 것이다.
+</br></br>
+### StretchColumns
+
+테이블 레이아웃 내의 특정 열이 테이블의 가로를 꽉 채우도록 설정할 수 있다. 열의 인덱스는 0부터 시작한다.
+</br></br>
+### layout_span
+
+테이블의 요소가 몇 개의 열을 차지할지 설정하는 속성이다.
+</br></br>
+### Frame Layout (프레임 레이아웃)
+
+프레임 레이아웃에 뷰를 넣으면 그 중 하나의 뷰만 화면에 표시한다. 중첩(overlay) 특성을 갖고 있어서 여러 개의 뷰를 전환할 때 사용할 수 있다. Visibility(가기성) 속성을 사용해 특정 뷰를 보이거나 보이지 않게 할 수 있다.
