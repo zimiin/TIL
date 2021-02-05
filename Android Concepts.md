@@ -215,7 +215,6 @@ drawable-mdpi : 중간 해상도 화면</br>
 ### 제스처 이벤트 처리
 
 제스처 이벤트는 터치 이벤트 중에서 스크롤 등을 구별한 후 알려주는 이벤트이다. 제스처 이벤트를 처리하는 GestureDetector 객체에 터치 이벤트를 전달하면 각 제스처에 대한 함수를 호출한다.
-
 </br></br>
 ### 키 이벤트 처리
 
@@ -242,10 +241,7 @@ onKeyDown() 메소드를 재정의하여 처리한다. onKeyDown()으로 전달�
 </br></br>
 ### 로그
 
-Log 클래스 사용해서 로그를 출력할 수 있다. 로그는 안드로이드 스튜디오 하단의 Logcat 창에서 확인할 수 있다.</br>
-스낵바 예시
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5d604458-d735-47c9-b898-624799e8936e/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5d604458-d735-47c9-b898-624799e8936e/Untitled.png)
+Log 클래스 사용해서 로그를 출력할 수 있다. 로그는 안드로이드 스튜디오 하단의 Logcat 창에서 확인할 수 있다.
 </br></br>
 ### 알림 대화상자
 
