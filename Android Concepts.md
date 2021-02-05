@@ -37,9 +37,9 @@ Uri.parse("tel:123-1234-1234") 가 되면 해당하는 전화번호로 바로 �
 
 xml 파일 버튼 요소의 onClick 속성 값에 함수를 지정해주면, 버튼이 클릭되었을 때 해당하는 함수가 실행된다.
 </br></br>
-### Toast
+### Toast (토스트)
 
-간단한 메시지를 잠깐 보여준다.
+간단한 메시지를 잠깐 보여준다. 토스트는 위치나 모양을 바꿀 수 있다. 토스트 대신 스낵바로 간단한 메시지를 보여줄 수도 있다.  
 </br></br>
 ### 요소를 추가했을 때 하얀 동그라미
 
@@ -215,3 +215,54 @@ drawable-mdpi : 중간 해상도 화면</br>
 ### 제스처 이벤트 처리
 
 제스처 이벤트는 터치 이벤트 중에서 스크롤 등을 구별한 후 알려주는 이벤트이다. 제스처 이벤트를 처리하는 GestureDetector 객체에 터치 이벤트를 전달하면 각 제스처에 대한 함수를 호출한다.
+
+</br></br>
+### 키 이벤트 처리
+
+onKeyDown() 메소드를 재정의하여 처리한다. onKeyDown()으로 전달되는 파라미터는 두 개이며, KeyCode는 어떤 키가 사용되는지 구별할 때 사용되고, KeyEvent는 키 입력 이벤트에 대한 정보를 알고 싶을 때 사용된다.
+</br></br>
+### 시스템 버튼
+
+단말 아래쪽에 보이는 버튼. (뒤로가기, 홈 등)</br>
+뒤로가기 버튼은 앱에서 제어할 수 있지만, 홈과 Recent Apps 버튼은 제어가 불가능하고 정보만 전달받게 됨.</br>
+
+많이 사용하는 키 입력 : 카메라 미리보기를 하면서 사용하는 [카메라] 버튼, 시스템 [BACK] 버튼. 각 버튼의 키 값은 KEYCODE_CAMERA, KEYCODE_BACK 이다.
+</br></br>
+### 단말 방향 전환
+
+단말 방향이 바뀔때는 액티비티가 메모리에서 없어졌다가 다시 만들어지게 된다. 그렇기 때문에 이전에 액티비티 안에서 사용하던 변수 값을 저장했다가 다시 복원해주어야 한다. 그런데 액티비티를 없앴다가 다시 만들 필요가 없는 경우에는 그렇게 설정할 수도 있다.</br>
+
+값 복원 방법 : onSaveInstanceState 콜백 메소드로 액티비티가 종료되기 전의 상태를 저장하고, 저장한 상태는 onCreate 메소드가 호출될 때 전달되는 객체로 복원가능하다.</br>
+
+단말이 가로 방향일 때 사용되는 리소스 폴더는 layout-land이다 (세로 방향일 때는 layout폴더가 사용된다).
+</br></br>
+### 수명 주기 (생명 주기, Life Cycle) 메소드
+
+직접 호출하는 것이 아니라 화면의 상태의 따라 시스템이 자동으로 호출해주는 메소드
+</br></br>
+### 로그
+
+Log 클래스 사용해서 로그를 출력할 수 있다. 로그는 안드로이드 스튜디오 하단의 Logcat 창에서 확인할 수 있다.</br>
+스낵바 예시
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5d604458-d735-47c9-b898-624799e8936e/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5d604458-d735-47c9-b898-624799e8936e/Untitled.png)
+</br></br>
+### 알림 대화상자
+
+화면 위에 뜨면서 사용자에게 예, 아니오, 취소 버튼을 누르게 한다. 대화상자도 모양을 바꿀 수 있다.
+
+```java
+// 1. 대화상자를 만들기 위한 builder 객체 생성
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+// 2. Title, Message, Icon을 설정해주고, setPositiveButton, setNeutralButton, 
+// setNegativeButton 함수로 각 버튼의 text를 설정해주고, onClickListener() 객체를 전달하면서 버튼이 눌렸을 때 처리해준다.
+
+// 3. 대화상자 만들고 띄우기
+AlertDialog dialog = builder.create();
+dialog.show();
+```
+</br></br>
+### 프로그레스바 (Progress Bar)
+
+작업의 진행 정도를 표시하거나 작업이 진행 중임을 사용자에게 알려줌. XML에서 <ProgressBar> 태그로 추가한다. 타이틀바에 프로그레스바를 표시할 수도 있다.
