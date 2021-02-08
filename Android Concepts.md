@@ -262,3 +262,49 @@ dialog.show();
 ### 프로그레스바 (Progress Bar)
 
 작업의 진행 정도를 표시하거나 작업이 진행 중임을 사용자에게 알려줌. XML에서 <ProgressBar> 태그로 추가한다. 타이틀바에 프로그레스바를 표시할 수도 있다.
+
+</br></br>
+### R.layout.activity_main 의미
+
+R은 /app/res 폴더, layout은 R 안의 layout 폴더, activity_main은 R.layout 폴더 안의 activity_main.xml 파일
+</br></br>
+### 인플레이션 (Inflation)
+
+앱이 실행될 때 XML 레이아웃의 내용이 메모리에 객체화되고, 객체화된 XML 레이아웃을 소스 파일에서 사용한다. 이 과정을 인플레이션이라 한다. </br>
+
+소스코드에서 레이아웃을 객체화하기 전에 (setContentView() 호출) 뷰 객체를 참조하려고 하면 오류가 발생한다.
+</br></br>
+### LayoutInflater 클래스
+
+setContentView() 로는 부분 화면(부분 레이아웃)을 메모리에 객체화할 수 없다. 부분 화면을 메모리에 객체화하려면 인플레이터(LayoutInflater)를 활용한다. </br>
+
+부분화면은 LayoutInflater 객체를 사용해 뷰그룹 객체로 객체화(인플레이션)한 후 메인 레이아웃에 추가한다.
+</br></br>
+### 안드로이드 앱 구성 요소
+
+1. 액티비티 (Activity)</br>
+2. 서비스 (Service)</br>
+3. 브로드캐스트 수신자 (Broadcast Receiver)</br>
+4. 내용 제공자 (Content Provider)</br></br>
+
+위의 구성 요소들은 AndroidManifest.xml 파일에 들어간다. 예를 들어 <activity> 태그로 액티비티에 대한 정보를 전달한다. 
+</br></br>
+### 액티비티 태그 속성
+
+android:label 화면 제목 설정</br>
+
+android:theme 테마 설정 ex) Theme.AppCompat.Dialog는 대화상자 형태의 액티비티
+</br></br>
+### 새로운 액티비티를 만들어 추가하고 데이터 주고받기
+
+1. 새로운 액티비티 만들기 </br>
+XML 파일, 자바 소스파일이 만들어지고 매니페스트 파일에 액티비티 태그 추가됨</br></br>
+2. 새로운 액티비티의 XML 레이아웃 정의하기</br>
+새로 만들어진 XML 파일 수정</br></br>
+3. 메인 액티비티에서 새로운 액티비티 띄우기</br>
+startActivityForResult 사용. startActivity는 단순히 화면을 띄워주는 역할만 하고, startActivityForResult를 사용하면 새로운 액티비티에서 응답을 받아 처리할 수 있게 됨.</br>
+startActivityForResult의 requestCode는 액티비티 구별에 사용하고, intent객체는 액티비티를 띄우는 목적으로 사용.</br></br>
+4. 새로운 액티비티에서 응답 보내기</br>
+setResult 사용 (이전 액티비티로 인텐트 전달함)</br></br>
+5. 응답 처리하기</br>
+onActivityResult 사용
