@@ -308,3 +308,51 @@ startActivityForResult의 requestCode는 액티비티 구별에 사용하고, in
 setResult 사용 (이전 액티비티로 인텐트 전달함)</br></br>
 5. 응답 처리하기</br>
 onActivityResult 사용
+</br></br>
+### 인텐트 (Intent)
+
+앱 구성 요소 간 정보를 전달하는 역할.</br></br>
+
+ex) 인텐트 전달 대표 메서드</br>
+액티비티를 화면에 띄울 때 : startActivity(), startActivityForResult()</br>
+서비스를 시작할 때 : startService(), bindService()</br>
+인텐트 객체를 브로드캐스팅 방식으로 전송할 때 : broadcastIntent()</br></br>
+
+인텐트 구성 요소 : 액션 (수행할 기능), 데이터 (액션이 수행될 대상의 데이터).</br>
+데이터의 포맷이 어떤 MIME 타입을 갖고 있는지에 따라 적절한 앱을 찾아 액티비티를 띄워준다.</br></br>
+
+ex) 액션 예시 : ACTION_DIAL, ACION_VIEW, ACTION_EDIT
+</br></br>
+### 컴포넌트 (Component)
+
+액티비티와 같은 독립적인 구성 요소</br>
+ex) ComponentName객체를 만들어 대상 액티비티의 이름을 지정 (패키지 이름까지 함께). 
+</br></br>
+### 액티비티 처리 방식
+
+액티비티 매니저 (ActivityManager)라는 객체에 의해 액티비티 스택(ActivityStack)으로 관리된다. 같은 액티비티를 StartActivity나 StartActivityForResult로 여러 번 호출하면 같은 액티비티가 중복되어 스택에 쌓이게 되니 주의해야 한다.
+</br></br>
+### 플래그
+
+액티비티의 중복 생성 문제를 해결하기 위해 사용한다. </br></br>
+
+FLAG_ACTIVITY_SINGLE_TOP : 액티비티 생성 시 이미 생성된 액티비티가 있으면 그것을 사용. </br>
+이러한 상황에서 인텐트를 전달받으려면 onNewIntent 메서드를 사용한다. 인텐트는 onCreate 함수에서 getIntent로 전달받을 수 있는데, 액티비티 재사용 시 onCreate함수가 호출되지 않기 때문이다. </br></br>
+
+FLAG_ACTIVITY_NO_HISTORY : 처음 이후에 실행된 액티비티는 액티비티 스택에 추가되지 않는다.</br></br>
+
+FLAG_ACTIVITY_CLEAR_TOP : 이 액티비티 위에 있는 다른 액티비티를 모두 종료시킨다.
+</br></br>
+### 부가 데이터
+
+한 액티비티에서 다른 액티비티를 띄우며 데이터를 전달할 때 사용한다. 인텐트 내의 번들(Bundle)객체에 담아서 전달하게 된다. 
+</br></br>
+### 번들 객체
+
+putExtra(), getExtra()로 데이터를 넣고 뺀다. 문자열이나 정수와 같은 부가 데이터를 넣을 때는 Key와 Value를 쌍으로 만들어 넣고, Key를 통해 다시 그 값을 받아올 수 있다. </br></br>
+
+전달하고 싶은 자료형이 기본 자료형이 아니라 객체(Object) 자료형인 경우에는 객체 데이터를 바이트 배열로 변환하거나 Parcelable 인터페이스를 구현하는 객체를 만들어 직렬화한 다름 전달해야 한다. Serializable, Parcelable은 유사한데 Parcelable이 직렬화했을 때 크기가 더 작다.
+</br></br>
+### 태스크 (Task)
+
+앱을 실행하면 하나의 프로세스 위에서 동작한다. 프로세스가 하나 실행되고, 그 위에는 가상 머신이 만들어지며, 가상 머신 위에서 앱이 실행되는 방식이다. 프로세스간 정보 공유는 어렵기 때문에 태스크가 만들어져 있다.
