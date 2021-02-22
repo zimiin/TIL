@@ -369,3 +369,31 @@ putExtra(), getExtra()로 데이터를 넣고 뺀다. 문자열이나 정수와 
 ### SharedPreferences
 
 앱 안에서 간단한 데이터를 저장, 복원하는 데 사용한다.
+</br></br>
+### 액티비티 (Activity)
+
+안드로이드 앱의 스크린 하나
+</br></br>
+### tools:context 속성
+
+해당 레이아웃이 어떤 액티비티와 관련있는지 정의한다.
+</br></br>
+### Context
+
+어플리케이션(객체)의 현재 상태의 맥락(context)를 의미한다. 새로 생성된 객체가 지금 어떤 일이 일어나고 있는지 알 수 있도록 한다. 따라서, 액티비티와 어플리케이션에 대한 정보를 얻기 위해서는 컨텍스트를 사용하면 된다.
+</br></br>
+### Application Context
+
+어플리케이션 자체와 연결된 것으로, 어플리케이션의 life cycle이 지속되는 동안 동일하다. 어플리케이션 컨텍스트는 현재의 컨텍스트와 분리된 라이프사이클을 가진 컨텍스트가 필요할 때나 액티비티의 범위를 넘어선 컨텍스트를 전달할 때 사용한다. 
+</br></br>
+### Activity Context
+
+액티비티와 연결된 것으로, 액티비티를 파괴시키고 다시 시작시키면 activity context도 바뀐다. 
+</br></br>
+### getApplicationContext()
+
+application context를 가리킨다. this는 activity context를 가리킨다.
+</br></br>
+### selector
+
+버튼 눌림 효과를 줄 때 사용한다.
