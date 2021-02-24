@@ -262,7 +262,6 @@ dialog.show();
 ### 프로그레스바 (Progress Bar)
 
 작업의 진행 정도를 표시하거나 작업이 진행 중임을 사용자에게 알려줌. XML에서 <ProgressBar> 태그로 추가한다. 타이틀바에 프로그레스바를 표시할 수도 있다.
-
 </br></br>
 ### R.layout.activity_main 의미
 
@@ -397,3 +396,26 @@ application context를 가리킨다. this는 activity context를 가리킨다.
 ### selector
 
 버튼 눌림 효과를 줄 때 사용한다.
+</br></br>
+### Adapter
+
+AdapterView와 해당 뷰에 들어갈 데이터를 연결해주는 다리 역할을 한다. Adapter로 데이터 아이템 접근, 데이터 셋의 아이템으로 뷰를 만들 수 있다.
+</br></br>
+### android:background만으로 배경 색을 바꿀 수 없을 때
+
+```
+android:background="@drawable/select_button"
+app:backgroundTint="@null"
+```
+
+backgroundTint를 null로 설정하거나, background대신에 backgroundTint로 색상을 설정한다.
+</br></br>
+### SeekBar
+
+ProgressBar를 확장한 것으로, 현재 진행 상태를 유저가 조절할 수 있는 것.
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a93f0178-8d51-4eff-985c-86a24847e800/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a93f0178-8d51-4eff-985c-86a24847e800/Untitled.png)
+</br></br>
+### app:cardElevation
+
+CardView사용 시 cardElevation속성은 그림자의 사이즈와 부드러움을 결정해서 깊이를 표현한다.
