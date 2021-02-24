@@ -413,8 +413,6 @@ backgroundTint를 null로 설정하거나, background대신에 backgroundTint로
 ### SeekBar
 
 ProgressBar를 확장한 것으로, 현재 진행 상태를 유저가 조절할 수 있는 것.
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a93f0178-8d51-4eff-985c-86a24847e800/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a93f0178-8d51-4eff-985c-86a24847e800/Untitled.png)
 </br></br>
 ### app:cardElevation
 
